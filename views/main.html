@@ -1,0 +1,37 @@
+<h3>Add new</h3>
+<div class="row">
+    <form ng-submit="addItem(newItem)">
+    <table width="100%">
+    <tr><input type="text" ng-model="newItem.id" size="10" placeholder="id"></tr>
+        <tr><input type="text" ng-model="newItem.name" size="20" placeholder="name"></tr>
+        <tr><input type="text" ng-model="newItem.param" size="30" placeholder="param"></tr>
+        <tr><button class="btn-primary" type="submit"><i class="fa fa-plus-square-o fa-lg"></i></button></tr>
+    </table>
+    </form>
+</div>
+<br>
+<div class="jumbotron">
+    <!-- <div class="pull-right"><h3><a ng-click="removeAll()">Reset to default</a></h3></div> -->
+    <br>
+
+    <div class="row marketing">
+        <table width="100%">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th><a ng-click="#"><i class="fa fa-plus-square-o fa-lg"></i></a></th>
+        </thead>
+
+    <tbody>
+        <tr ng-repeat="item in listOThings">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.param }}</td>
+            <td><a ng-click="removeItem(item.id)"><i class="fa fa-minus-square-o fa-lg"></i></a></td>
+
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

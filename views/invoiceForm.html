@@ -1,0 +1,86 @@
+<center><h3>Invoice</h3></center>
+
+<div>
+  <label>Items :</label>
+  <select>
+    <option value="Select">Select</option>
+    <option value="Agarbatti">Agarbatti</option>
+    <option value="Black Phenyle">Black Phenyle</option>
+    <option value="Bleaching">Bleaching</option>
+    <option value="Brooms">Brooms</option>
+    <option value="Dish Washer">Dish Washer</option>
+    <option value="Glass Cleaner">Glass Cleaner</option>
+    <option value="OFC">OFC</option>
+    <option value="Sanitizer">Sanitizer</option>
+    <option value="Scrubber">Scrubber</option>
+    <option value="Scheme">Scheme</option>
+  </select>
+</div>
+
+
+
+
+
+<div class="row" >
+    <form ng-submit="addItem(newItem)">
+    <table width="100%">
+    <tr><input type="text" ng-model="newItem.id" size="10" placeholder="id"></tr>
+        <tr><input type="text" ng-model="newItem.name" size="20" placeholder="name"></tr>
+        <tr><input type="text" ng-model="newItem.param" size="30" placeholder="param"></tr>
+        <tr><button class="btn-primary" type="submit"><i class="fa fa-plus-square-o fa-lg"></i></button></tr>
+    </table>
+    </form>
+</div>
+<br>
+<div class="jumbotron">
+    <!-- <div class="pull-right"><h3><a ng-click="removeAll()">Reset to default</a></h3></div> -->
+    <br>
+
+    <div class="row marketing">
+        <table width="100%">
+        <thead>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>TaxType</th>
+            <th>TaxRate</th>
+            <th>TaxAmount</th>
+            <th><a ng-click="#"><i class="fa fa-plus-square-o fa-lg"></i></a></th>
+        </thead>
+
+    <tbody>
+        <tr ng-repeat="item in listOThings">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td><input type="text"></td>
+            <td>{{ item.param }}</td>
+            <td><input type="text"></td>
+            <td><select><option value="Select">Select</option></select></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><a ng-click="removeItem(item.id)"><i class="fa fa-minus-square-o fa-lg"></i></a></td>
+
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<div class="pull-right">
+    <table>
+        <tr>
+            <td>Total Quantity : </td>
+            <td><input type="text"> </td>
+        </tr>
+        <tr>
+            <td>Total Tax Amount : </td>
+            <td><input type="text"> </td>
+        </tr>
+        <tr>
+            <td>Payment Type : </td>
+            <td><input type="text"> </td>
+        </tr>
+    </table>
+</div>
