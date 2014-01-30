@@ -1,0 +1,26 @@
+<table width="100%" class="table table-hover table-bordered table-responsive ">
+         <thead>
+            <th>Invoice Code</th>
+            <th>Party Code</th>
+            <th>Party Name</th>
+            <th>Invoice Date</th>
+            <th>Invoice Status</th>
+            <th>Total Quantity</th>
+            <th>Total Tax</th>
+            <th>Payment Mode</th>
+            <th>Grand Total</th>
+         </thead>
+         <tbody>
+            <tr ng-repeat="invoice in invoiceMasterContent">
+               <td>{{ invoice.InvoiceCode }}</td>
+               <td>{{ invoice.PartyCode }}</td>
+               <td>{{ invoice.PartyName }}</td>
+               <td>{{ invoice.InvoiceDate }}</td>
+               <td>{{ invoice.InvoiceStatus }}</td>
+               <td>{{ invoice.TotalQuantity }}</td>
+               <td>{{ invoice.TotalTax }}</td>
+               <td>{{ invoice.PaymentMode }}</td>
+               <td>{{ invoice.GrandTotal }}</td>
+            </tr>
+         </tbody>
+      </table>

@@ -1,8 +1,61 @@
 'use strict';
 
-myApp.controller('MainCtrl', function ($scope, $rootScope, IDB) {
+myApp.directive('autoComplete', function($timeout) {
+    return function(scope, iElement, iAttrs) {
+            iElement.autocomplete({
+                messages: {
+                    noResults: '',
+                    results: function() {}
+                },
+                source: scope[iAttrs.uiItems],
+                select: function() {
+                    $timeout(function() {
+                      iElement.trigger('input');
+                    }, 0);
+                }
+            });
+    };
+});
+
+myApp.controller('InvoiceCtrl', function ($scope, $rootScope, IDB, $http) {
     var self = this;
     var INVOICE_STORE = "invoiceStore";
+    var INVOICE_HEADER = "invoiceMaster";
+    var INVOICE_LINES = "invoiceLine";
+	var ITEMS_STORE = "items";
+    var EPMASTER_STORE = "EPMaster";
+
+
+    
+   
+   $http.get('../data/invoiceMaster.json').success(function(data) {
+    $scope.invoiceMasterContent = data;
+    });
+    
+	$http.get('../data/ItemsMaster.json').success(function(data) {
+	$scope.itemMasterContent = data;
+	});
+
+    var EPMasterContent = null;
+    $http.get('../data/EPMaster.json').success(function(data) {
+        $scope.EPMasterContent = data;
+    });
+
+    $http.get('../data/Tax.json').success(function(data) {
+    $scope.taxContent = data;
+    });
+
+
+    $scope.initializeDB = function(){
+        // IDB.put(INVOICE_STORE, item);
+
+        IDB.batchInsert(ITEMS_STORE, itemMasterContent);
+        IDB.batchInsert(EPMASTER_STORE, EPMasterContent);
+        
+    };
+
+
+
 
     var myDefaultList = [
         {
@@ -27,17 +80,25 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, IDB) {
         }
     ];
 
+
+    $scope.EPCODE = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
+    $scope.EPNAME = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
+    $scope.EPCONTACT = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
+
+
+
+
     $scope.listOThings = [];
 
-    $scope.combobox = function() {
-        $( "#combobox" ).combobox();
-        $( "#toggle" ).click(function() {
-        $( "#combobox" ).toggle();
-        });
+    $scope.setTax = function(AmtOrPerc) {
+        
     };
 
     $scope.addItem = function(item){
+        
         IDB.put(INVOICE_STORE, item);
+
+        console.log($scope.EPCODE);
     };
 
     $scope.removeAll = function(){
@@ -54,7 +115,9 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, IDB) {
             $scope.listOThings = data;
             if (!$scope.listOThings || $scope.listOThings.length <= 0) {
                 $scope.listOThings = [];
-                IDB.batchInsert(INVOICE_STORE, myDefaultList);
+                 IDB.batchInsert(INVOICE_STORE, myDefaultList);
+                $scope.initializeDB();
+                
             }
         });
     };
@@ -122,4 +185,8 @@ myApp.controller('MainCtrl', function ($scope, $rootScope, IDB) {
         getAllThings();
     })();
 
+
+
+
 });
+

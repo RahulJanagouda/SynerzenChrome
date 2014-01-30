@@ -1,0 +1,334 @@
+[
+  {
+    "EPCode":"C0001",
+    "EPName":"Akshata Agencies"
+  },
+  {
+    "EPCode":"C0002",
+    "EPName":"Aqsa Traders"
+  },
+  {
+    "EPCode":"C0003",
+    "EPName":"Bhagya Enterprises"
+  },
+  {
+    "EPCode":"C0004",
+    "EPName":"Bukshet Enterprises"
+  },
+  {
+    "EPCode":"C0005",
+    "EPName":"City Agencies"
+  },
+  {
+    "EPCode":"C0006",
+    "EPName":"Ganesh Enterprises"
+  },
+  {
+    "EPCode":"C0007",
+    "EPName":"Gayatri Enterprises, Bidar"
+  },
+  {
+    "EPCode":"C0008",
+    "EPName":"Gayatri Enterprises, Dharwad"
+  },
+  {
+    "EPCode":"C0009",
+    "EPName":"GRS Enterprises "
+  },
+  {
+    "EPCode":"C0010",
+    "EPName":"Haripriya Enterprises"
+  },
+  {
+    "EPCode":"C0011",
+    "EPName":"Jai Raghuveer Agencies"
+  },
+  {
+    "EPCode":"C0012",
+    "EPName":"Jyothi Agencies"
+  },
+  {
+    "EPCode":"C0013",
+    "EPName":"Jyothi Enterprises"
+  },
+  {
+    "EPCode":"C0014",
+    "EPName":"Kamal Enterprises"
+  },
+  {
+    "EPCode":"C0015",
+    "EPName":"Kamat Agencies"
+  },
+  {
+    "EPCode":"C0016",
+    "EPName":"Kavita Provisions"
+  },
+  {
+    "EPCode":"C0017",
+    "EPName":"Laxmi Agencies"
+  },
+  {
+    "EPCode":"C0018",
+    "EPName":"Mahalasa Traders"
+  },
+  {
+    "EPCode":"C0019",
+    "EPName":"Maniraj Agarbatties"
+  },
+  {
+    "EPCode":"C0020",
+    "EPName":"Manjunath Tradelines"
+  },
+  {
+    "EPCode":"C0021",
+    "EPName":"MASCON"
+  },
+  {
+    "EPCode":"C0022",
+    "EPName":"Mohan Food World"
+  },
+  {
+    "EPCode":"C0023",
+    "EPName":"N.B.Traders"
+  },
+  {
+    "EPCode":"C0024",
+    "EPName":"Ojha "
+  },
+  {
+    "EPCode":"C0025",
+    "EPName":"Pavan Enterprises"
+  },
+  {
+    "EPCode":"C0026",
+    "EPName":"Revansiddeshwar Agencies"
+  },
+  {
+    "EPCode":"C0027",
+    "EPName":"Saptagiri Agencies"
+  },
+  {
+    "EPCode":"C0028",
+    "EPName":"Shashikant Distributors"
+  },
+  {
+    "EPCode":"C0029",
+    "EPName":"S.H.Marketing "
+  },
+  {
+    "EPCode":"C0030",
+    "EPName":"Shreyash Enterprises"
+  },
+  {
+    "EPCode":"C0031",
+    "EPName":"Shri Daneshwari Agencies"
+  },
+  {
+    "EPCode":"C0032",
+    "EPName":"Shri Gollaleshwar Enterprises"
+  },
+  {
+    "EPCode":"C0033",
+    "EPName":"Shrinivas Agency "
+  },
+  {
+    "EPCode":"C0034",
+    "EPName":"Sai Trading Company"
+  },
+  {
+    "EPCode":"C0035",
+    "EPName":"Shri Veerbhadreshwar Enterprises"
+  },
+  {
+    "EPCode":"C0036",
+    "EPName":"Spoorthi Enterprises"
+  },
+  {
+    "EPCode":"C0037",
+    "EPName":"Sri Omkar Enterprises"
+  },
+  {
+    "EPCode":"C0038",
+    "EPName":"Vajreshwari Enterprises"
+  },
+  {
+    "EPCode":"C0039",
+    "EPName":"Veena Enterprises "
+  },
+  {
+    "EPCode":"C0040",
+    "EPName":"Vinay Traders"
+  },
+  {
+    "EPCode":"C0041",
+    "EPName":"Vinayak Marketers"
+  },
+  {
+    "EPCode":"C0042",
+    "EPName":"Yasin Agencies"
+  },
+  {
+    "EPCode":"C0043",
+    "EPName":"Metro Outlet, Ganpat Galli"
+  },
+  {
+    "EPCode":"C0044",
+    "EPName":"Metro Outlet, Turmuri"
+  },
+  {
+    "EPCode":"C0045",
+    "EPName":"R.K.Marketing, Anantshyan Galli"
+  },
+  {
+    "EPCode":"C0046",
+    "EPName":"R.K.Marketing "
+  },
+  {
+    "EPCode":"C0047",
+    "EPName":"R.K.Marketing, Shahpur"
+  },
+  {
+    "EPCode":"C0048",
+    "EPName":"R.K.Marketing (Van Route )"
+  },
+  {
+    "EPCode":"C0049",
+    "EPName":"Sambra Outlet"
+  },
+  {
+    "EPCode":"C0050",
+    "EPName":"Umesh Chalvetkar, Patil"
+  },
+  {
+    "EPCode":"V0001",
+    "EPName":"Bakshi Mark Pvt Ltd"
+  },
+  {
+    "EPCode":"V0002",
+    "EPName":"Bashir Bagwan"
+  },
+  {
+    "EPCode":"V0003",
+    "EPName":"Belgaum Enterprises"
+  },
+  {
+    "EPCode":"V0004",
+    "EPName":"Caution Coats & Cabinets"
+  },
+  {
+    "EPCode":"V0005",
+    "EPName":"Consol Consolidated Pvt Ltd"
+  },
+  {
+    "EPCode":"V0006",
+    "EPName":"Doric Automation"
+  },
+  {
+    "EPCode":"V0007",
+    "EPName":"Kirtiraj Trading"
+  },
+  {
+    "EPCode":"V0008",
+    "EPName":"Mandagini Agencies"
+  },
+  {
+    "EPCode":"V0009",
+    "EPName":"Manjushree Thechnopack Limited"
+  },
+  {
+    "EPCode":"V0010",
+    "EPName":"M.N.Pickles Industries"
+  },
+  {
+    "EPCode":"V0011",
+    "EPName":"Naveen Plastics"
+  },
+  {
+    "EPCode":"V0012",
+    "EPName":"Pragati Pet "
+  },
+  {
+    "EPCode":"V0013",
+    "EPName":"Propack Engineering"
+  },
+  {
+    "EPCode":"V0014",
+    "EPName":"R.B.Indusries"
+  },
+  {
+    "EPCode":"V0015",
+    "EPName":"R.I.Walishetar"
+  },
+  {
+    "EPCode":"V0016",
+    "EPName":"S.A.Engineering"
+  },
+  {
+    "EPCode":"V0017",
+    "EPName":"Sangam Pet Industries"
+  },
+  {
+    "EPCode":"V0018",
+    "EPName":"S.S.Fruits Products"
+  },
+  {
+    "EPCode":"V0019",
+    "EPName":"Sukhkarta Trading Company"
+  },
+  {
+    "EPCode":"V0020",
+    "EPName":"Suraj Agro Indutries"
+  },
+  {
+    "EPCode":"V0021",
+    "EPName":"Synthithe Industries Ltd"
+  },
+  {
+    "EPCode":"V0022",
+    "EPName":"USP Packing Solutions Pvt Ltd"
+  },
+  {
+    "EPCode":"V0023",
+    "EPName":"Yesh Lami Print Pvt Ltd"
+  },
+  {
+    "EPCode":"V0024",
+    "EPName":"Siddhakala Pet Industries"
+  },
+  {
+    "EPCode":"V0025",
+    "EPName":"Vision Pet Jar"
+  },
+  {
+    "EPCode":"V0026",
+    "EPName":"Minicon Enterprises"
+  },
+  {
+    "EPCode":"V0027",
+    "EPName":"Kinjin Food Pvt. Ltd"
+  },
+  {
+    "EPCode":"V0028",
+    "EPName":"Venkatesh Plastics"
+  },
+  {
+    "EPCode":"V0029",
+    "EPName":"Preeti Papers"
+  },
+  {
+    "EPCode":"V0030",
+    "EPName":"Subramanyam Pet Jar"
+  },
+  {
+    "EPCode":"V0031",
+    "EPName":"Gomati Mills"
+  },
+  {
+    "EPCode":"V0032",
+    "EPName":"Santosh General Stores"
+  },
+  {
+    "EPCode":"V0033",
+    "EPName":"Jet Inks Private Ltd"
+  }
+]

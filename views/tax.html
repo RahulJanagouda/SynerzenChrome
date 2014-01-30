@@ -1,0 +1,14 @@
+<table width="100%" class="table table-hover table-bordered table-responsive ">
+   <thead>
+      <th>Tax Code</th>
+      <th>Tax Name</th>
+      <th>Tax Percent</th>
+   </thead>
+   <tbody>
+      <tr ng-repeat="tax in taxContent">
+         <td>{{ tax.TaxCode }}</td>
+         <td>{{ tax.TaxDisc }}</td>
+         <td>{{ tax.AmtOrPerc }}</td>
+      </tr>
+   </tbody>
+</table>

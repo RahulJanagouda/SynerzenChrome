@@ -1,0 +1,22 @@
+<table width="100%" class="table table-hover table-bordered table-responsive ">
+         <thead>
+            <th>Invoice Code</th>
+            <th>Item Code</th>
+            <th>Item Name</th>
+            <th>Item Price</th>
+            <th>Discount</th>
+            <th>Item Quantity</th>
+            <th>Tax Code</th>
+            <th>Tax Desc</th>
+            <th>Tax Rate</th>
+            <th>Tax Calculated</th>
+            <th>Line Total</th>
+         </thead>
+         <tbody>
+            <tr ng-repeat="item in itemMasterContent">
+               <td>{{ item.ItemCode }}</td>
+               <td>{{ item.ItemDesc }}</td>
+               <td>{{ item.FixedCost }}</td>
+            </tr>
+         </tbody>
+      </table>

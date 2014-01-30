@@ -1,0 +1,115 @@
+<h3 class="text-center">Invoice</h3>
+
+<div class="pull-right">
+    <div class="row">
+        <label>Invoice Id :  </label>
+        <label>{{getDate()}}</label>
+    </div>
+    <div class="row">
+        <label>Invoice Date :  </label>
+        <label>21 January 2014</label>
+    </div>
+    <div class="row">
+        <label>Status :  </label>
+        <label>Open</label>
+    </div>
+
+</div>
+
+<div class="row">
+    
+    <div class="col-xs-4">
+          <select class="form-control" ng-init="Customer=EPMasterContent[0]" ng-model="Customer"  ng-options="Customer.EPName for Customer in EPMasterContent"></select>
+    </div>
+    <div class="col-xs-4">
+        <label class="form-control">{{Customer.EPCode}}</label>
+    </div>
+</div>
+
+
+<div class="row hidden">
+    <div class="col-xs-4">
+        <select class="form-control" ng-model="newItem.name">
+            <option ng-repeat="item in itemMasterContent" >{{item.ItemDesc}}</option>
+        </select>
+    </div>
+    <div class="col-xs-3">
+        <!-- <tr><input type="text" ng-model="newItem.name" size="20" placeholder="name"></tr> -->
+        <!-- <input class="form-control" type="text" ng-model="newItem.param" size="30" placeholder="Price"> -->
+        <label class="form-control">{{item}}</label>
+    </div>
+
+    <div class="col-xs-3">
+        <input class="form-control" type="text" ng-model="newItem.id" size="10" placeholder="id">
+    </div>
+    
+    
+    <div class="col-xs-1">
+        <button class="btn btn-info btn-sm" ng-click="addItem(newItem)"><i class="fa fa-plus-square-o fa-lg"></i></button>
+    </div>
+</div>
+<br>
+<div class="jumbotron">
+   <!-- <div class="pull-right"><h3><a ng-click="removeAll()">Reset to default</a></h3></div> -->
+   <br>
+   <div class="row marketing">
+      <table width="100%" class="table table-hover table-bordered table-responsive ">
+         <thead>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Discount</th>
+            <th>TaxType</th>
+            <th>TaxRate</th>
+            <th>TaxAmount</th>
+            <td>Total</td>
+            <th><a ng-click="#"><i class="fa fa-plus-square-o fa-lg"></i></a></th>
+         </thead>
+         <tbody>
+            <tr ng-repeat="item in listOThings">
+               <td>{{ item.id }}</td>
+               <td><select ng-init="lineItem=itemMasterContent[0]" ng-model="lineItem"  ng-options="lineItem.ItemDesc for lineItem in itemMasterContent"></select></td></td>
+               <td>{{ lineItem.FixedCost }}</td>
+               <td><input type="text" maxlength="5" size="3"></td>
+               <td><input type="text" maxlength="3" size="3"></td>
+               <td><select ng-init="tax=taxContent[0]" ng-model="tax"  ng-options="tax.TaxDisc for tax in taxContent"></select></td>
+               <td>{{tax.AmtOrPerc}}</td>
+               <td>0.0 Rs</td>
+               <td>00.00 Rs</td>
+               <td>
+                  <button ng-click="removeItem(item.id)" type="button" class="close" aria-hidden="true">&times;</button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3">
+   <label >Total Quantity :</label>
+   <label class="form-control">999</label>
+</div>
+
+<div class="col-md-3">
+   <label >Total Tax Amount :</label>
+   <label class="form-control disabled">99999.99</label>
+</div>
+<div class="col-md-3">
+    <label >Payment Mode :  </label>
+    <select class="form-control">
+        <option>Credit Card</option>
+        <option>Debit Card</option>
+        <option>Cash</option>
+        <option>Online Transfer</option>
+   </select>
+</div>
+<div class="col-md-3">
+   
+       <label>Total</label>
+   <label class="form-control">99999.99</label>
+    
+</div>
+</div>

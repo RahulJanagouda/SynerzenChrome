@@ -1,0 +1,62 @@
+[
+  {
+    "TaxCode":"T001",
+    "TaxDisc":"BED 12 + 5%",
+    "AmtOrPerc":12
+  },
+  {
+    "TaxCode":"T002",
+    "TaxDisc":"C.S.T. 2%",
+    "AmtOrPerc":2
+  },
+  {
+    "TaxCode":"T003",
+    "TaxDisc":"C.S.T. 14.50%",
+    "AmtOrPerc":14.5
+  },
+  {
+    "TaxCode":"T004",
+    "TaxDisc":"C.S.T. 5.5%",
+    "AmtOrPerc":5.5
+  },
+  {
+    "TaxCode":"T005",
+    "TaxDisc":"VAT  5.5%",
+    "AmtOrPerc":5.5
+  },
+  {
+    "TaxCode":"T006",
+    "TaxDisc":"BED 12 + C.S.T. 5.5%",
+    "AmtOrPerc":12
+  },
+  {
+    "TaxCode":"T007",
+    "TaxDisc":"BED 12 + vat 14.50%",
+    "AmtOrPerc":14.5
+  },
+  {
+    "TaxCode":"T008",
+    "TaxDisc":"BED 12+ VAT  5.5%",
+    "AmtOrPerc":5.5
+  },
+  {
+    "TaxCode":"T009",
+    "TaxDisc":"BED 12+C.S.T.2%",
+    "AmtOrPerc":12
+  },
+  {
+    "TaxCode":"T010",
+    "TaxDisc":"PC+Vat@14.50%",
+    "AmtOrPerc":14.5
+  },
+  {
+    "TaxCode":"T011",
+    "TaxDisc":"BED 12 + C.S.T. 14.50%",
+    "AmtOrPerc":14.5
+  },
+  {
+    "TaxCode":"T012",
+    "TaxDisc":"VAT 14.50%",
+    "AmtOrPerc":14.5
+  }
+]

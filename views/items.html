@@ -1,0 +1,14 @@
+<table width="100%" class="table table-hover table-bordered table-responsive ">
+         <thead>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+         </thead>
+         <tbody>
+            <tr ng-repeat="item in itemMasterContent">
+               <td>{{ item.ItemCode }}</td>
+               <td>{{ item.ItemDesc }}</td>
+               <td>{{ item.FixedCost }}</td>
+            </tr>
+         </tbody>
+      </table>
