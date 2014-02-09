@@ -296,7 +296,8 @@ table {
 *:after {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
-          box-sizing: border-box;
+          
+  box-sizing: border-box;
 }
 
 html {
@@ -308,7 +309,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #333333;
+  /* color: #10C4FD; */
   background-color: #E3E3E3;
 }
 
@@ -467,6 +468,9 @@ cite {
 
 .text-center {
   text-align: center;
+  font-family: serif;
+  font-style: inherit;
+  font-weight: 400;
 }
 
 h1,
@@ -5921,14 +5925,15 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .well {
-  min-height: 20px;
+  min-height: 75px;
   padding: 19px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .well blockquote {

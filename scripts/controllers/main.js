@@ -1,23 +1,7 @@
 'use strict';
 
-myApp.directive('autoComplete', function($timeout) {
-    return function(scope, iElement, iAttrs) {
-            iElement.autocomplete({
-                messages: {
-                    noResults: '',
-                    results: function() {}
-                },
-                source: scope[iAttrs.uiItems],
-                select: function() {
-                    $timeout(function() {
-                      iElement.trigger('input');
-                    }, 0);
-                }
-            });
-    };
-});
-
 myApp.controller('InvoiceCtrl', function ($scope, $rootScope, IDB, $http) {
+    
     var self = this;
     var INVOICE_STORE = "invoiceStore";
     var INVOICE_HEADER = "invoiceMaster";
@@ -25,8 +9,16 @@ myApp.controller('InvoiceCtrl', function ($scope, $rootScope, IDB, $http) {
 	var ITEMS_STORE = "items";
     var EPMASTER_STORE = "EPMaster";
 
+    $scope.allInvoices = [];
 
-    
+    var date = new Date();
+    $scope.invoice = {};
+    $scope.invoice.invoiceId = date.getTime();
+    $scope.invoice.invoiceDate = date.getDate()+" "+date.getMonth()+" "+date.getFullYear();
+    $scope.invoice.invoiceStatus = "Open";
+    $scope.invoice.totalQuantity = 0 ;
+    $scope.invoice.totalTaxAmount = 0 ;
+    $scope.invoice.grandTotal = 0;
    
    $http.get('../data/invoiceMaster.json').success(function(data) {
     $scope.invoiceMasterContent = data;
@@ -45,65 +37,96 @@ myApp.controller('InvoiceCtrl', function ($scope, $rootScope, IDB, $http) {
     $scope.taxContent = data;
     });
 
-
-    $scope.initializeDB = function(){
-        // IDB.put(INVOICE_STORE, item);
-
-        IDB.batchInsert(ITEMS_STORE, itemMasterContent);
-        IDB.batchInsert(EPMASTER_STORE, EPMasterContent);
-        
-    };
-
-
+$scope.getAllInvoices = function() {
+    IDB.getAll(INVOICE_HEADER);
+};
 
 
     var myDefaultList = [
-        {
-            id: 1,
-            name: "Broom",
-            param: "100"
-        },
-        {
-            id: 2,
-            name: "VVV",
-            param: "100"
-        },
-        {
-            id: 3,
-            name: "Phenyl",
-            param: "10"
-        },
-        {
-            id: 4,
-            name: "Sanitizer",
-            param: "1000"
-        }
+    {
+        "id" : 8906044570078,
+        "name" : "Mango Premium 5kg",
+        "price" : 4,
+        "quantity" : 100,
+        "discount" : 100,
+        "taxCode" : "T005",
+        "taxName" : "VAT  5.5%",
+        "taxRate" : 5.5,
+        "taxAmount" : 16.500,
+        "total" : 316.500,
+        "invoiceId" : 123456,
+    }
     ];
 
 
-    $scope.EPCODE = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
-    $scope.EPNAME = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
-    $scope.EPCONTACT = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
+$scope.saveInvoice = function(invoice,lineItems) {
+
+invoice.lineItems = $scope.listOThings;
+console.log(JSON.stringify(invoice, null, 4));
+// console.log(JSON.stringify($scope.listOThings, null, 4));
+
+    IDB.put(INVOICE_HEADER, invoice);
+    // IDB.batchInsert(INVOICE_LINES, lineItems);
+
+
+    var temp = IDB.getAll(INVOICE_HEADER);
+    for (var i = 0; i < temp.length; i++) {
+        console.log("Objecto numero: "+i);
+    };
+
+};
+
 
 
 
 
     $scope.listOThings = [];
-
-    $scope.setTax = function(AmtOrPerc) {
-        
-    };
-
     $scope.addItem = function(item){
-        
-        IDB.put(INVOICE_STORE, item);
 
-        console.log($scope.EPCODE);
+
+        var lineItem = {};
+        lineItem.id = item.name.ItemCode;
+        lineItem.name = item.name.ItemDesc;
+        lineItem.price =  new Number((new Number(item.name.FixedCost)).toFixed(3));
+        lineItem.quantity = new Number((new Number(item.quantity)).toFixed(3));
+        lineItem.discount =  new Number((new Number(item.discount)).toFixed(3));
+        lineItem.taxCode= item.tax.TaxCode;
+        lineItem.taxName = item.tax.TaxDisc;
+        lineItem.taxRate = new Number((new Number(item.tax.AmtOrPerc)).toFixed(3));
+
+        var a = new Number((lineItem.price*lineItem.quantity-lineItem.discount)*lineItem.taxRate/100);
+        lineItem.taxAmount = new Number(a.toFixed(3));
+        var b = new Number((lineItem.price*lineItem.quantity-lineItem.discount)+a);
+        lineItem.total = new Number(b.toFixed(3));
+        
+        IDB.put(INVOICE_STORE, lineItem);
+        console.log(JSON.stringify(lineItem, null, 4) + "Inserted !!");
+
     };
 
     $scope.removeAll = function(){
         IDB.removeAll(INVOICE_STORE);
     };
+
+
+$scope.calculateTotal = function() {
+    var lineItemArray = $scope.listOThings;
+    $scope.invoice.grandTotal=0;
+    $scope.invoice.totalQuantity=0;
+    $scope.invoice.totalTaxAmount=0;
+    console.log("In calculate");
+    for (var i = lineItemArray.length - 1; i >= 0; i--) {
+        $scope.invoice.grandTotal += lineItemArray[i].total;
+
+        $scope.invoice.totalQuantity += lineItemArray[i].quantity;
+        $scope.invoice.totalTaxAmount += lineItemArray[i].taxAmount;
+
+        // console.log(JSON.stringify(lineItemArray[i].total, null, 4));
+    };
+};
+
+
+    
 
     $scope.removeItem = function(id) {
         IDB.remove(INVOICE_STORE, id);
@@ -113,10 +136,11 @@ myApp.controller('InvoiceCtrl', function ($scope, $rootScope, IDB, $http) {
         $rootScope.$apply(function () {
             console.log('update, apply', data);
             $scope.listOThings = data;
+            $scope.calculateTotal();
+            $scope.getAllInvoices();
             if (!$scope.listOThings || $scope.listOThings.length <= 0) {
                 $scope.listOThings = [];
                  IDB.batchInsert(INVOICE_STORE, myDefaultList);
-                $scope.initializeDB();
                 
             }
         });
