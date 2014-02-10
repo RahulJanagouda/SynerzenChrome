@@ -1,53 +1,5 @@
-'use strict';
 
-var dbParams = {
-    name: 'synerzenDB',
-    version: 11,
-    options: [
-        {
-            storeName: 'invoiceStore',
-            keyPath: 'id',
-            indexes: [
-                { name: 'name', unique: false }
-            ]
-        },
-        {
-            storeName: 'items',
-            keyPath: 'ItemCode',
-            indexes: [
-                { name: 'ItemDesc', unique: false }
-            ]
-        },
-        {
-            storeName: 'EPMaster',
-            keyPath: 'EPCode',
-            indexes: [
-                { name: 'EPName', unique: false }
-            ]
-        },
-        {
-            storeName: 'invoiceMaster',
-            keyPath: 'invoiceId',
-            indexes: [
-                { name: 'invoiceId', unique: true }
-            ]
-        },
-        {
-            storeName: 'invoiceLine',
-            keyPath: 'invoiceId',
-            indexes: [
-                { name: 'ItemCode', unique: false }
-            ]
-        }
-    ]
-};
-
-var myApp = angular.module('synerzenApp',
-    [
-        'ngRoute',
-        'angular-indexeddb'
-    ]
-);
+var myApp = angular.module('synerzenApp', ['ngRoute']);
 
 myApp.config(function ($routeProvider) {
     $routeProvider
@@ -65,22 +17,17 @@ myApp.config(function ($routeProvider) {
         })
         .when('/items', {
             templateUrl: 'views/items.html',
-            controller: 'InvoiceCtrl'
+            controller: 'ItemCtrl'
         })
         .when('/parties', {
             templateUrl: 'views/parties.html',
-            controller: 'InvoiceCtrl'
+            controller: 'PartyCtrl'
         })
         .when('/tax', {
             templateUrl: 'views/tax.html',
-            controller: 'InvoiceCtrl'
+            controller: 'TaxCtrl'
         })
         .otherwise({
             redirectTo: '/'
         });
 });
-
-myApp.run(['IDB', function (IDB) {
-    IDB.openDB(dbParams.name, dbParams.version, dbParams.options);
-}]);
-
