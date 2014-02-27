@@ -11,6 +11,7 @@ myApp.controller('InvoiceCtrl', function ($scope, $rootScope, IDB, $http) {
 
     $scope.allInvoices = [];
 
+
     var date = new Date();
     $scope.invoice = {};
     $scope.invoice.invoiceId = date.getTime();
@@ -41,6 +42,10 @@ $scope.getAllInvoices = function() {
     IDB.getAll(INVOICE_HEADER);
 };
 
+$scope.print = function(){
+    console.log("hi");
+     window.print();
+};
 
     var myDefaultList = [
     {
@@ -69,10 +74,12 @@ console.log(JSON.stringify(invoice, null, 4));
     // IDB.batchInsert(INVOICE_LINES, lineItems);
 
 
-    var temp = IDB.getAll(INVOICE_HEADER);
-    for (var i = 0; i < temp.length; i++) {
-        console.log("Objecto numero: "+i);
-    };
+    // var temp = IDB.getAll(INVOICE_HEADER);
+    // for (var i = 0; i < temp.length; i++) {
+    //     console.log("Objecto numero: "+i);
+    // };
+
+   
 
 };
 

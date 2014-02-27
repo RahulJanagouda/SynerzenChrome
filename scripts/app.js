@@ -52,7 +52,7 @@ var myApp = angular.module('synerzenApp',
 myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'views/home.html',
+            templateUrl: 'views/login.html',
             controller: 'InvoiceCtrl'
         })
         .when('/invoice', {
