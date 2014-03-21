@@ -2,6 +2,8 @@
 
 myApp.controller('InvoiceCtrl', function ($scope, $rootScope, IDB, $http) {
     
+    $rootScope.navBar.style.visibility = 'visible';
+
     var self = this;
     var INVOICE_STORE = "invoiceStore";
     var INVOICE_HEADER = "invoiceMaster";
@@ -47,6 +49,64 @@ $scope.print = function(){
      window.print();
 };
 
+//parameter object definition
+var param=function(name,value){
+    this.name=name;
+    this.value=value;
+};
+
+
+
+
+$scope.login = function () {
+
+// var data=new Array();
+    
+//      data[data.length]=new param('username',$scope.isUser.username);
+//      data[data.length]=new param('password',$scope.isUser.password);
+
+
+// console.log("Data"+data);
+
+
+// console.log(JSON.stringify(data, null, 4));
+
+    $http({method: 'POST', url: 'http://vibhava-market.appspot.com/Login', data: $scope.isUser}).
+    success(function(data, status, headers, config) {
+      // this callback will be called asynchronously
+      // when the response is available
+    console.log(JSON.stringify(data, null, 4));
+
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+
+      console.log("Error");
+    });
+    
+};
+
+
+
+$scope.getEmployees = function (argument) {
+
+    $http({method: 'GET', url: 'http://vibhava-market.appspot.com/employee'}).
+    success(function(data, status, headers, config) {
+      // this callback will be called asynchronously
+      // when the response is available
+    console.log(JSON.stringify(data, null, 4));
+
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+
+      console.log("Error");
+    });
+    
+};
+
     var myDefaultList = [
     {
         "id" : 8906044570078,
@@ -79,9 +139,10 @@ console.log(JSON.stringify(invoice, null, 4));
     //     console.log("Objecto numero: "+i);
     // };
 
-   
+   getEmployees();
 
 };
+
 
 
 

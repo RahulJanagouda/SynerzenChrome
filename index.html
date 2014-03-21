@@ -17,10 +17,11 @@
 
 	<script src="scripts/app.js"></script>
 	<script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/loginController.js"></script>
 	
 </head>
 <body >
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -39,6 +40,7 @@
         <li><a href="#parties">Parties</a></li>
         <li><a href="#tax">Tax</a></li>
         <li><a href="#invoice">Invoice</a></li>
+        <li><a href="#order">Order</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -51,7 +53,7 @@
             <li><a href="#">Delete</a></li>
           </ul>
         </li>
-       <li><a href="#/" ng-click="print()" ><i class="fa fa-print fa-2x"></i></a></li>
+       <li><a href ng-click="print()"><i class="fa fa-print fa-2x"></i></a></li>
        <li><a href="#"><i class="fa fa-refresh fa-2x"></i><span class="badge">!</span></a></li>
        <li><a href="#"><i class="fa fa-bell fa-2x"></i><span class="badge">2</span></a></li>
        <li class="dropdown">
